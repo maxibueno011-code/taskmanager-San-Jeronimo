@@ -34,7 +34,7 @@ export class RegisterUser {
             genero: user.genero,
             email: user.email,
             passwordHash: passwordData,
-            activo: user.activo
+            check: user.check
         });
 
         return await this.userRepository.save(user_Data);

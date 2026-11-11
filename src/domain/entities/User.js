@@ -22,7 +22,7 @@ export class User {
         genero,
         email,
         passwordHash = null,
-        activo = null
+        check = si
     }) {
         this.id = id;
         this.institucion = institucion;
@@ -31,7 +31,7 @@ export class User {
         this.genero = genero;
         this.email = email;
         this.passwordHash = passwordHash;
-        this.activo = activo;
+        this.check = check;
     }
 
 }

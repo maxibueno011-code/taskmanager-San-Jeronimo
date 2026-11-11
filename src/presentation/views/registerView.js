@@ -91,7 +91,7 @@ export function showRegisterView(container, presenter) {
                     </div>
 
                     <label for="aceptar">Activo</label>
-                <input type="checkbox" id="aceptar" name="activo" value="si">
+                <input type="checkbox" id="check" name="check" value="si">
 
 
 
@@ -142,7 +142,7 @@ export function showRegisterView(container, presenter) {
             genero: formData.get("genero"),
             email: formData.get("email"),
             password: formData.get("password"),
-            activo: formData.get("activox")
+            check: formData.get("check")
         };
 
         presenter.register(userData);
