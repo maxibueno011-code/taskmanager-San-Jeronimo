@@ -30,9 +30,11 @@ export class RegisterUser {
         const user_Data = new User({
             institucion: user.institucion,
             name: user.name,
+            tipoUsuario: user.tipoUsuario,
             genero: user.genero,
             email: user.email,
-            passwordHash: passwordData
+            passwordHash: passwordData,
+            activo: user.activo
         });
 
         return await this.userRepository.save(user_Data);

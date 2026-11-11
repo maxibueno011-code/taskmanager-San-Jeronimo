@@ -18,16 +18,20 @@ export class User {
         id = null,
         institucion,
         name,
+        tipoUsuario,
         genero,
         email,
-        passwordHash = null
+        passwordHash = null,
+        activo = null
     }) {
         this.id = id;
         this.institucion = institucion;
         this.name = name;
+        this.tipoUsuario = tipoUsuario;
         this.genero = genero;
         this.email = email;
         this.passwordHash = passwordHash;
+        this.activo = activo;
     }
 
 }
