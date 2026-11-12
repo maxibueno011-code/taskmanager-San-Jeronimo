@@ -41,7 +41,9 @@ export class LoginPresenter {
         } catch (error) {
 
             showLoginMessage(
-                error.message
+                error.message,
+                "danger"
+                
             );
         }
     }
