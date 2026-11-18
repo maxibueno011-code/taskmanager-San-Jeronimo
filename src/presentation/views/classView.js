@@ -20,14 +20,8 @@ console.log("Presenter al mostrar la vista:", presenter);
     currentPresenter = presenter;
 
     container.innerHTML = `
+    <div class="container">
         <section class="classes-container">
-
-            <header class="page-header">
-                <div>
-                    <h1>Gestor Escolar</h1>
-                    <p>Gestión de clases</p>
-                </div>
-            </header>
 
             <section class="class-form-container">
 
@@ -149,6 +143,7 @@ console.log("Presenter al mostrar la vista:", presenter);
             </section>
 
         </section>
+    </div>    
     `;
 
     const form =document.getElementById("class-form");
@@ -209,7 +204,7 @@ export function renderClasses(
     const list = document.getElementById("class-list");
     const status = document.getElementById("sync-status");
 
-     status.innerHTML = pending
+    status.innerHTML = pending
         ? "<p>Sincronizando cambios...</p>"
         : "<p>Todo está sincronizado.</p>";
 
@@ -228,65 +223,49 @@ export function renderClasses(
         return;
     }
 
-    list.innerHTML = classes.map(
-        classItem => `
+    list.innerHTML = `
+        
 
-            <article class="class-card">
-
-                <div class="class-card-content">
-
-                    <h3>
-                        ${escapeHtml(
-                            classItem.name
-                        )}
-                    </h3>
-
-                    <p>
-                        <strong>Docente:</strong>
-                        ${escapeHtml(
-                            classItem.teacher
-                        )}
-                    </p>
-
-                    <p>
-                        <strong>Fecha:</strong>
-                        ${escapeHtml(
-                            classItem.date
-                        )}
-                    </p>
-
-                    <p>
-                        ${escapeHtml(
-                            classItem.description
-                        )}
-                    </p>
-
-                </div>
-
-                <div class="class-card-actions">
-
-                    <button
-                        class="button button-secondary"
-                        data-action="edit"
-                        data-id="${classItem.id}"
-                    >
-                        Editar
-                    </button>
-
-                    <button
-                        class="button button-danger"
-                        data-action="delete"
-                        data-id="${classItem.id}"
-                    >
-                        Eliminar
-                    </button>
-
-                </div>
-
-            </article>
-
-        `
-    ).join("");
+            <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre clase</th>
+            <th scope="col">Docente</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Eliminar</th>
+            </tr>
+        </thead>
+        <tbody>
+        ${classes.map((classItem, index) => `
+            <tr>
+            <th scope="row">${index + 1}</th>
+            <td>${escapeHtml(classItem.name)}</td>
+            <td>${escapeHtml(classItem.teacher)}</td>
+            <td>${escapeHtml(classItem.description)}</td>
+            <td>${escapeHtml(classItem.date)}</td>
+            <td> 
+            <button class="button button-secondary" data-action="edit"
+            data-id="${classItem.id}">
+            Editar
+            </button>
+            </td>
+            <td>
+            <button class="button button-danger" data-action="delete"
+            data-id="${classItem.id}">
+            Eliminar
+            </button>
+            </td>
+            <td></td>
+            </tr>
+        `).join("")}
+        </tbody>
+        </table>
+    </div>`;
+        
+    
 
     /*
      * Eventos de Editar
