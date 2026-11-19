@@ -145,6 +145,7 @@ console.log("Presenter al mostrar la vista:", presenter);
         </section>
     </div>    
     `;
+    console.log("Presenter al mostrar la vista 2:", presenter);
 
     const form =document.getElementById("class-form");
 

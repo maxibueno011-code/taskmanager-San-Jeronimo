@@ -15,6 +15,8 @@ import { RegisterPresenter } from "./registerPresenter.js";
 import { showClassView } from "../views/classView.js";
 import { showHome } from "../views/homeView.js";
 import { renderNavbar} from "../components/navbar.js";
+import { showArquitectureView } from "../views/arquitectureView.js";
+
 
 export class LoginPresenter {
 
@@ -34,7 +36,7 @@ export class LoginPresenter {
                     credentials
                 );
             console.log("Usuario autenticado:",user);
-            localStorage.setItem("userActive", JSON.stringify(user));
+            
             
             
             showHome(this.container,this.classPresenter);
